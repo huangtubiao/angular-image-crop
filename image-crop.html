@@ -1,0 +1,46 @@
+<div id="uploader-img-crop" class="text-center">
+    <!-- 上传并预览裁剪图片 -->
+    <div class="uploader-img-previous">
+        <image-crop           
+            data-height="200"
+            data-width="200"
+            data-shape="square"
+            data-step="imageCropStep"
+            src="imgSrc"
+            data-result="result"
+            data-result-blob="resultBlob"
+            crop="initCrop"
+            padding="250"
+            max-size="1024">
+        </image-crop>
+    </div>
+
+    <!-- 裁剪后图片 -->
+    <ul class="uploader-img-crop-result" ng-show="imageCropStep == 3">
+        <li class="uploader-img-result">
+            <img ng-src="{{ imgSrc }}"/>
+            <p>64px*64px</p>
+        </li>
+        <li class="uploader-img-result">
+            <img ng-src="{{ imgSrc }}"/>
+            <p>128px*128px</p>
+        </li>
+        <li class="uploader-img-result">
+            <img ng-src="{{ imgSrc }}"/>
+            <p>180px*180px</p>
+        </li>
+    </ul>
+    
+    <!-- 操作按钮 -->
+    <div class="uploader-img-tool">
+        <br/>
+        <div class="btn btn-upload btn-info">
+            <span>上传图像</span>
+            <input type="file" name="fileInput" id="fileInput" onchange="angular.element(this).scope().fileChanged(event)" />
+        </div>    
+        <button class="btn btn-info" ng-click="initCrop = true">剪切</button>
+        <button class="btn btn-info" ng-click="save()">确定</button>
+        <button class="btn btn-default" ng-click="clear()">取消</button>
+    </div>    
+</div>
+
